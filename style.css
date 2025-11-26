@@ -1,5 +1,7 @@
 :root {
     --bg-dark: #333;
+
+    --txt: #ffffff;
 }
 
 * {
@@ -10,6 +12,7 @@
 
 body {
     background-color: var(--bg-dark);
+    color: var(--txt);
 }
 
 .wrapper {
@@ -21,13 +24,13 @@ body {
 }
 
 .left {
-  border: 1px solid #000000;
+  border: 1px solid #ffffff;
   width: 100%;
   text-align: center;
 }
 
 .right {
-  border: 1px solid #000000;
+  border: 1px solid #ffffff;
   width: 100%;
   text-align: center;
 }

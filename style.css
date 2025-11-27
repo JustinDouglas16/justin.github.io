@@ -37,12 +37,18 @@ body {
   &.hold {
     > * {
       &:first-child {
-        scroll-snap-align: start;
+        animation: scroll_hold 0.0001s forwards;
       }
 
       &:last-child {
         scroll-snap-align: end;
       }
     }
+  }
+}
+
+@keyframes scroll_hold {
+  to {
+    scroll-snap-align: start;
   }
 }

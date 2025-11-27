@@ -27,9 +27,11 @@ body {
   overflow-x: auto;
   border-block: 1px solid #666;
   scroll-snap-type: x mandatory;
+  container-type: inline-size;
+  scrollbar-width: none;
 
   > :nth-child(2) {
-    width: 100vw;
+    width: 100cqw;
     padding: 10px 20px;
     scroll-snap-align: center;
   }

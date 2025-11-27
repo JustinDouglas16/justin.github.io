@@ -33,4 +33,16 @@ body {
     padding: 10px 20px;
     scroll-snap-align: center;
   }
+
+  &.hold {
+    > * {
+      &:first-child {
+        scroll-snap-align: start;
+      }
+
+      &:last-child {
+        scroll-snap-align: end;
+      }
+    }
+  }
 }

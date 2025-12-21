@@ -1,56 +1,399 @@
-:root {
-  color-scheme: light dark;
-
-  /* COLORS */
-  --black: #070709;
-  --white: #ffffff;
-  --yellow: #f6d653;
-
-  --fg: light-dark(var(--black), var(--white));
-  --bg: light-dark(var(--white), var(--black));
-}
-
-* {
+/* =========================================
+   1. Modern Reset & Variables
+   ========================================= */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body {
+* {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-size: 36px;
+  padding: 0;
 }
 
-.swipe {
+:root {
+  --clr-primary: #1d3557;
+  --clr-secondary: #e56d39;
+  --clr-white: #ffffff;
+  --clr-black: #000000;
+  --ff-heading: "Oswald", sans-serif;
+  --ff-body: "Poppins", sans-serif;
+  --spacer: 1rem;
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: var(--ff-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 7%;
+}
+
+/* =========================================
+   2. Global Components (Buttons)
+   ========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-family: var(--ff-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+  letter-spacing: 0.05rem;
+}
+
+.btn-primary {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  border-radius: 50px;
+}
+
+.btn-secondary {
+  background-color: var(--clr-secondary);
+  color: var(--clr-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   3. Header & Navigation (Refined)
+   ========================================= */
+.site-header {
+  position: relative;
+  background: var(--clr-white);
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem var(--spacer);
+  border-bottom: 3px solid var(--clr-secondary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobile-toggle {
+  background: none;
+  border: none;
+  color: var(--clr-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-hamburger,
+.icon-caret {
+  width: 1.8rem;
+  height: 1.8rem;
+  stroke: currentColor;
+  transition: transform var(--transition);
+}
+
+.nav-drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--clr-primary);
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  overflow-x: auto;
-  border-block: 1px solid #666;
-  scroll-snap-type: x mandatory;
-  container-type: inline-size;
-  scrollbar-width: none;
-
-  > :nth-child(2) {
-    width: 100cqw;
-    padding: 10px 20px;
-    scroll-snap-align: center;
-  }
-
-  &.hold {
-    > * {
-      &:first-child {
-        animation: scroll_hold 0.0001s forwards;
-      }
-
-      &:last-child {
-        scroll-snap-align: end;
-      }
-    }
-  }
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition), opacity var(--transition);
+  opacity: 0;
+  overflow: hidden;
+  z-index: 999;
 }
 
-@keyframes scroll_hold {
-  to {
-    scroll-snap-align: start;
+.nav-drawer.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  border-bottom: 5px solid var(--clr-secondary);
+}
+
+.main-nav {
+  min-height: 0;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 7%;
+  color: var(--clr-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--ff-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.5vw + 0.5rem, 1.1rem);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--clr-secondary);
+  outline: none;
+}
+
+.submenu {
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition);
+  overflow: hidden;
+}
+
+.submenu.is-open {
+  grid-template-rows: 1fr;
+}
+
+.submenu-inner {
+  min-height: 0;
+}
+
+.submenu .nav-link {
+  padding-left: 12%;
+  font-size: clamp(0.85rem, 1vw + 0.5rem, 0.95rem);
+  border-left: 3px solid transparent;
+}
+
+.submenu .nav-link:hover {
+  border-left-color: var(--clr-secondary);
+}
+
+.icon-caret {
+  width: 1.2rem;
+  height: 1.2rem;
+  pointer-events: none;
+}
+
+.dropdown-trigger[aria-expanded="true"] .icon-caret {
+  transform: rotate(180deg);
+  color: var(--clr-secondary);
+}
+
+/* =========================================
+   4. Hero Section (Introduction)
+   ========================================= */
+.hero-intro {
+  padding: clamp(3rem, 10vw, 5rem) 0;
+}
+
+.hero-illustration {
+  display: block;
+  margin: 0 auto 2.5rem;
+  width: 100%;
+  max-width: clamp(250px, 40vw, 450px);
+  height: auto;
+}
+
+.hero-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.75rem, 5vw + 1rem, 2.75rem);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.15rem);
+  margin-bottom: 1rem;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.hero-subtitle {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.25rem, 3vw + 0.5rem, 1.75rem);
+  color: var(--clr-secondary);
+  margin: 3rem 0 1.5rem;
+  text-align: center;
+}
+
+.pain-points-list {
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pain-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.1rem);
+  font-weight: 500;
+}
+
+.icon-x {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  color: var(--clr-secondary);
+  stroke-width: 2.5;
+}
+
+/* =========================================
+   5. Utopia Section (Primary Dark)
+   ========================================= */
+.utopia-section {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  position: relative;
+  padding: clamp(100px, 15vw, 160px) 0;
+}
+
+.curve-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.curve-top {
+  top: 0;
+}
+.curve-bottom {
+  transform: rotate(180deg);
+  bottom: 0;
+}
+
+.curve-divider svg {
+  width: calc(100% + 1.3px);
+  height: clamp(50px, 8vw, 100px);
+}
+
+.utopia-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(2rem, 5vw + 1rem, 3rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--clr-white);
+}
+
+.utopia-intro {
+  text-align: center;
+  font-size: clamp(1.1rem, 2vw + 0.5rem, 1.3rem);
+  font-style: italic;
+  margin-bottom: 4rem;
+  opacity: 0.9;
+}
+
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.check-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+  line-height: 1.6;
+}
+
+.icon-check {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  color: var(--clr-secondary);
+  stroke-width: 3;
+}
+
+.utopia-outro {
+  margin-top: 4rem;
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.15rem);
+}
+
+.utopia-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  align-items: center;
+}
+
+/* =========================================
+   5. Utopia Section (Updated with Illustration)
+   ========================================= */
+
+/* ... existing utopia-section styles ... */
+
+.utopia-illustration {
+  display: block;
+  margin: 0 auto clamp(2rem, 5vw, 3rem) auto;
+  width: 100%;
+  /* Fluid scaling: 280px on small mobile up to 500px on desktop */
+  max-width: clamp(280px, 45vw, 500px);
+  height: auto;
+  /* Filter: drop-shadow for a subtle lift against the dark background if needed */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+}
+
+/* Ensure the title has a tight relationship with the image */
+.utopia-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(2rem, 5vw + 1rem, 3rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--clr-white);
+}
+
+/* =========================================
+   6. Responsive Overrides
+   ========================================= */
+@media (min-width: 768px) {
+  .pain-points-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .utopia-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .btn-secondary {
+    width: auto;
+    min-width: 320px;
   }
 }

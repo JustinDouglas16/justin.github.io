@@ -5,40 +5,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- BEGIN -->
-    <div class="swipe" id="swipe">
-        <button style="background-color: red; width: 200px;">X</button>
-        <div>
-            <p>Hi from outer space</p>
-        </div>
-        <button style="background-color: green; width: 200px;">+</button>
-    </div>
-    <!-- END -->
-    <!-- BEGIN -->
-    <div class="swipe hold">
-        <button style="background-color: red; width: 200px;">X</button>
-        <div>
-            <p>Hi from outer space</p>
-        </div>
-        <button style="background-color: green; width: 200px;">+</button>
-    </div>
-    <!-- END -->
-    <!-- BEGIN -->
-    <div style="width: 70%;">
-        <div class="swipe hold">
-            <button style="background-color: red; width: 200px;">X</button>
-            <div>
-                <p>Hi from outer space</p>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo-link">
+                <img src="img/logo.webp" alt="Logo" width="120">
+            </a>
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary">Book a Call</a>
+                <button class="mobile-toggle" aria-expanded="false" aria-controls="nav-drawer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        class="icon-hamburger">
+                        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
             </div>
-            <button style="background-color: green; width: 200px;">+</button>
         </div>
-    </div>
-    <!-- END -->
-     <script src="main.js"></script>
+
+        <div id="nav-drawer" class="nav-drawer">
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="nav-link dropdown-trigger" aria-expanded="false"
+                            aria-controls="services-submenu">
+                            Services
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                class="icon-caret">
+                                <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <ul id="services-submenu" class="submenu">
+                            <div class="submenu-inner">
+                                <li><a href="#" class="nav-link">WordPress Editing Services</a></li>
+                                <li><a href="#" class="nav-link">WordPress Maintenance Services</a></li>
+                                <li><a href="#" class="nav-link">WordPress Optimisation Services</a></li>
+                                <li><a href="#" class="nav-link">WordPress Security Services</a></li>
+                                <li><a href="#" class="nav-link">WordPress Support Services</a></li>
+                                <li><a href="#" class="nav-link">WordPress Maintenance Plans</a></li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="nav-link">Products</a></li>
+                    <li><a href="#" class="nav-link">About Us</a></li>
+                    <li><a href="#" class="nav-link">Blog</a></li>
+                    <li><a href="#" class="nav-link">FAQ</a></li>
+                    <li><a href="#" class="nav-link">White Label</a></li>
+                    <li><a href="#" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- hero section begin -->
+        <section class="hero-intro">
+            <div class="container">
+                <!-- SVG Hero Image at the top -->
+                <img src="img/wpsupporters.svg" alt="WordPress Support Illustration" class="hero-illustration"
+                    loading="eager">
+                <h1 class="hero-title">
+                    Expert WordPress Maintenance And Support Services For Busy Or Non-Techie Website Owners…
+                </h1>
+
+                <div class="hero-content">
+                    <p>Are you a frustrated non-techie website owner wanting help with WordPress?</p>
+                    <p>Or are you just busy and would like your website managed for you?</p>
+
+                    <h2 class="hero-subtitle">Imagine… ALL of your WordPress headaches…gone:</h2>
+
+                    <ul class="pain-points-list">
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more WordPress updates</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more website editing</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more content publishing</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more slow website</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more security worries</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more downtime</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more backup fears</span>
+                        </li>
+                        <li class="pain-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon-x">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>No more worry, confusion, frustration or annoyance</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- hero section end -->
+
+        <!-- second section begin -->
+        <section class="utopia-section">
+            <!-- Top Curve Divider -->
+            <div class="curve-divider curve-top">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-31.06,107.6-41.13,190.41-37.36,303.15,2.77V0Z"
+                        fill="#ffffff"></path>
+                </svg>
+            </div>
+
+            <div class="container">
+                <!-- NEW: Utopia Section Illustration -->
+                <img src="img/building-website.svg" alt="Building and maintaining a WordPress website"
+                    class="utopia-illustration" loading="lazy">
+                <h2 class="utopia-title">Is This How You Picture WordPress Utopia Too…?</h2>
+                <p class="utopia-intro">Imagine… in the coming weeks, months and years…</p>
+
+                <ul class="check-list">
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>Your plugins, themes and WordPress version will be updated weekly when new versions are
+                            released (no more security holes in your website)</span>
+                    </li>
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>You’ll have new pages or posts published for you, text or images added, removed or edited,
+                            whenever you like (google loves fresh content as you know)</span>
+                    </li>
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>Your website will load super fast on any device (giving your SEO a boost too)</span>
+                    </li>
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>Spammers and hackers are blocked thanks to your rock-solid site security (24/7/365)</span>
+                    </li>
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>Your website is backed up offsite every day, guaranteed (how’s that for peace of
+                            mind?)</span>
+                    </li>
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>Your website is monitored to ensure it stays online 24/7 (to keep customers, leads and
+                            sales coming in)</span>
+                    </li>
+                    <li class="check-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-check">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span>You’re updated weekly about how smoothly and awesome your website is performing (you’re
+                            kept in the loop the entire time)…</span>
+                    </li>
+                </ul>
+
+                <div class="utopia-outro">
+                    <p><strong>Sounds heavenly, doesn’t it?</strong></p>
+                    <p>That’s what life is like for WPsupporters customers.</p>
+                    <p>If you’re a WordPress website owner and would like to have peace of mind knowing that technical
+                        and content updates for your website are taken care of 100%, read on to find out how easy it can
+                        be.</p>
+                    <p>Because… as one of the top WordPress support agencies we’ve got the team, expertise and
+                        affordable care plans to keep your website maintenance and performance in top shape…</p>
+                </div>
+
+                <div class="utopia-actions">
+                    <a href="#" class="btn btn-secondary">See Pricing & Sign Up</a>
+                    <a href="#" class="btn btn-secondary">Schedule a Chat</a>
+                </div>
+            </div>
+
+            <!-- Bottom Curve Divider -->
+            <div class="curve-divider curve-bottom">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        fill="#ffffff"></path>
+                </svg>
+            </div>
+        </section>
+        <!-- second section end -->
+
+    </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
